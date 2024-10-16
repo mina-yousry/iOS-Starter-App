@@ -239,6 +239,7 @@
 		652186EB2961984100BFCC12 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D96E54122CC0085B0005EDF7 /* UserInterface */,
 				652186D1295C6C8300BFCC12 /* ViewController */,
 				652186E6295DB2FC00BFCC12 /* Cells */,
 			);
@@ -335,9 +336,6 @@
 			children = (
 				652186EC2961B31500BFCC12 /* ViewModel */,
 				652186EB2961984100BFCC12 /* Views */,
-				652186DA295C6D4700BFCC12 /* CharactersListUserInterfaceProtocol.swift */,
-				652186D8295C6D2D00BFCC12 /* CharactersListUserInterface.swift */,
-				6580F18E296DBF100038293B /* BigCharactersListUserInterface.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -367,6 +365,16 @@
 				D96E540C2CBFF8040005EDF7 /* CharactersListRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		D96E54122CC0085B0005EDF7 /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				652186DA295C6D4700BFCC12 /* CharactersListUserInterfaceProtocol.swift */,
+				652186D8295C6D2D00BFCC12 /* CharactersListUserInterface.swift */,
+				6580F18E296DBF100038293B /* BigCharactersListUserInterface.swift */,
+			);
+			path = UserInterface;
 			sourceTree = "<group>";
 		};
 		D9D1EA9F29ABB69F00B7673F /* Mocks */ = {
