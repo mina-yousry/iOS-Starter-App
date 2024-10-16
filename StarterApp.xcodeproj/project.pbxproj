@@ -206,12 +206,6 @@
 				D96E54082CBFC5900005EDF7 /* Presentation */,
 				D96E54072CBFC5880005EDF7 /* Domain */,
 				D96E54062CBFC57E0005EDF7 /* Data */,
-				65F915E229630B730075D1D5 /* UseCase */,
-				652186EC2961B31500BFCC12 /* InterActionResponder */,
-				652186EB2961984100BFCC12 /* Views */,
-				652186E1295DA59200BFCC12 /* UserInterface */,
-				652186DC295D9A9900BFCC12 /* DataEntity */,
-				652186D7295C6CFD00BFCC12 /* DisplayableEntity */,
 			);
 			path = CarachtersList;
 			sourceTree = "<group>";
@@ -223,33 +217,6 @@
 				652186D3295C6CB800BFCC12 /* CharactersListViewController.xib */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		652186D7295C6CFD00BFCC12 /* DisplayableEntity */ = {
-			isa = PBXGroup;
-			children = (
-				652186E4295DAAE000BFCC12 /* CharactersListDisplayableEntity.swift */,
-			);
-			path = DisplayableEntity;
-			sourceTree = "<group>";
-		};
-		652186DC295D9A9900BFCC12 /* DataEntity */ = {
-			isa = PBXGroup;
-			children = (
-				652186DD295D9AE900BFCC12 /* MarvelCharacterEntity.swift */,
-				652186DF295D9BF700BFCC12 /* BaseResponseEntity.swift */,
-			);
-			path = DataEntity;
-			sourceTree = "<group>";
-		};
-		652186E1295DA59200BFCC12 /* UserInterface */ = {
-			isa = PBXGroup;
-			children = (
-				652186DA295C6D4700BFCC12 /* CharactersListUserInterfaceProtocol.swift */,
-				652186D8295C6D2D00BFCC12 /* CharactersListUserInterface.swift */,
-				6580F18E296DBF100038293B /* BigCharactersListUserInterface.swift */,
-			);
-			path = UserInterface;
 			sourceTree = "<group>";
 		};
 		652186E6295DB2FC00BFCC12 /* Cells */ = {
@@ -307,8 +274,8 @@
 		65D278E72958823A000D16D1 /* StarterApp */ = {
 			isa = PBXGroup;
 			children = (
-				652186D0295C6C6F00BFCC12 /* CarachtersList */,
 				652186B9295B3A2800BFCC12 /* Bases */,
+				652186D0295C6C6F00BFCC12 /* CarachtersList */,
 				65D278E82958823A000D16D1 /* AppDelegate.swift */,
 				65D278F12958823B000D16D1 /* Assets.xcassets */,
 				65D278F32958823B000D16D1 /* LaunchScreen.storyboard */,
@@ -339,18 +306,10 @@
 			path = StarterAppUITests;
 			sourceTree = "<group>";
 		};
-		65F915E229630B730075D1D5 /* UseCase */ = {
-			isa = PBXGroup;
-			children = (
-				65F915E329630BA80075D1D5 /* ViewCharactersListUseCaseProtocol.swift */,
-				65F915E529630CF80075D1D5 /* ViewCharactersListUseCase.swift */,
-			);
-			path = UseCase;
-			sourceTree = "<group>";
-		};
 		D96E54062CBFC57E0005EDF7 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				D96E540A2CBFEEBE0005EDF7 /* DTO */,
 				D96E54092CBFC5FE0005EDF7 /* Network */,
 			);
 			path = Data;
@@ -359,6 +318,9 @@
 		D96E54072CBFC5880005EDF7 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				65F915E329630BA80075D1D5 /* ViewCharactersListUseCaseProtocol.swift */,
+				65F915E529630CF80075D1D5 /* ViewCharactersListUseCase.swift */,
+				652186E4295DAAE000BFCC12 /* CharactersListDisplayableEntity.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -366,6 +328,11 @@
 		D96E54082CBFC5900005EDF7 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				652186EC2961B31500BFCC12 /* InterActionResponder */,
+				652186EB2961984100BFCC12 /* Views */,
+				652186DA295C6D4700BFCC12 /* CharactersListUserInterfaceProtocol.swift */,
+				652186D8295C6D2D00BFCC12 /* CharactersListUserInterface.swift */,
+				6580F18E296DBF100038293B /* BigCharactersListUserInterface.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -377,6 +344,15 @@
 				65BC927D296441AF007A2060 /* ListOfCharactersRequest.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		D96E540A2CBFEEBE0005EDF7 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				652186DD295D9AE900BFCC12 /* MarvelCharacterEntity.swift */,
+				652186DF295D9BF700BFCC12 /* BaseResponseEntity.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		D9D1EA9F29ABB69F00B7673F /* Mocks */ = {
