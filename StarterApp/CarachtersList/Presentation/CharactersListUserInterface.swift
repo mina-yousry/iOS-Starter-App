@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 
 class CharactersListUserInterface: CharactersListUserInterfaceProtocol {
+    
     var cellNibName: String {
         return "CharacterTableViewCell"
     }
@@ -18,14 +19,13 @@ class CharactersListUserInterface: CharactersListUserInterfaceProtocol {
         return "CharacterTableViewCell"
     }
     
-    
-    weak var interActionResponder: CharactersListInterActionResponderProtocol?
+    var viewModel: CharactersListViewModelProtocol?
     var data = PublishSubject<[CharactersDisplayableEntity]>()
     
     private let disposeBag = DisposeBag()
     
-    required init(interActionResponder: CharactersListInterActionResponderProtocol) {
-        self.interActionResponder = interActionResponder
+    required init(viewModel: CharactersListViewModelProtocol) {
+        self.viewModel = viewModel
     }
     
     func getScreenTitle() -> String {
@@ -33,7 +33,7 @@ class CharactersListUserInterface: CharactersListUserInterfaceProtocol {
     }
     
     func getCharacters() {
-        let obs = self.interActionResponder?.getCharactersList(size: .thumbnail).share()
+        let obs = self.viewModel?.getCharactersList(size: .thumbnail).share()
         obs?.bind(to: self.data).disposed(by: disposeBag)
     }
     

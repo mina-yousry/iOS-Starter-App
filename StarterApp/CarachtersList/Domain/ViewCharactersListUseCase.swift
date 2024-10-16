@@ -9,12 +9,11 @@ import Foundation
 import RxSwift
 import SwiftyMocky
 
-class ViewCharactersListUseCase: ViewCharactersListUseCaseProtocol {
+class ViewCharactersListUseCase: BaseUseCase<CharacterListRepo>,
+                                 ViewCharactersListUseCaseProtocol {
     
-    func getCharactersList(disposeBag: DisposeBag) -> Observable<MarverCharactersResponseEntity> {
+    func getCharactersList() -> Observable<MarverCharactersResponseEntity> {
         let req = ListOfCharactersRequest()
-        let obs = RemoteFetcher<MarvelCharactersDataEntity,
-                                MarverCharactersResponseEntity>.getRemoteResponse(request: req).share()
-        return obs
+        return repo.getCharacters(req: req)
     }
 }

@@ -10,12 +10,12 @@ import RxSwift
 
 protocol CharactersListUserInterfaceProtocol: AnyObject {
     
-    var interActionResponder: CharactersListInterActionResponderProtocol? { get }
+    var viewModel: CharactersListViewModelProtocol? { get }
     var data: PublishSubject<[CharactersDisplayableEntity]> { get }
     var cellNibName: String { get }
     var cellReuseIdentifier: String { get }
     
-    init(interActionResponder: CharactersListInterActionResponderProtocol)
+    init(viewModel: CharactersListViewModelProtocol)
     
     func getScreenTitle() -> String
     func getCharacters()

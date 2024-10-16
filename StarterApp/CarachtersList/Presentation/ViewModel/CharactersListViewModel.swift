@@ -8,14 +8,14 @@
 import Foundation
 import RxSwift
 
-class CharactersListInterActionResponder: CharactersListInterActionResponderProtocol {
-    
-    var charactersListUserInterface: CharactersListUserInterfaceProtocol?
-    private let disposeBag = DisposeBag()
-    
+class CharactersListViewModel: BaseViewModel<CharacterListRepo,
+                                ViewCharactersListUseCase,
+                                CharatersListRoutes,
+                                CharactersListRouter>,
+                               CharactersListViewModelProtocol {
+        
     func getCharactersList(size: ImageSize) -> Observable<[CharactersDisplayableEntity]> {
-        let useCase = ViewCharactersListUseCase()
-        let obs = useCase.getCharactersList(disposeBag: self.disposeBag).share()
+        let obs = useCase.getCharactersList().share()
         return obs.map{ [weak self] charactersList in
             return self?.mapToDisplayableEntity(charactersList.data?.results ?? [], size: size) ?? []
         }
@@ -25,5 +25,9 @@ class CharactersListInterActionResponder: CharactersListInterActionResponderProt
         return data.map({ character in
             return CharactersDisplayableEntity(character: character, size: size)
         })
+    }
+    
+    deinit {
+        print("deinit: CharactersListViewModel")
     }
 }

@@ -15,13 +15,10 @@ class CharactersListViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     private var userInterface: CharactersListUserInterfaceProtocol?
-    private var interactionResponder: CharactersListInterActionResponderProtocol?
-    
-    init(userInterface: CharactersListUserInterfaceProtocol,
-         interactionResponder: CharactersListInterActionResponderProtocol) {
+        
+    init(userInterface: CharactersListUserInterfaceProtocol) {
         super.init(nibName: nil, bundle: nil)
         self.userInterface = userInterface
-        self.interactionResponder = interactionResponder
     }
     
     required init?(coder: NSCoder) {

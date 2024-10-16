@@ -12,5 +12,5 @@ import SwiftyMocky
 //sourcery: AutoMockable
 protocol ViewCharactersListUseCaseProtocol {
     
-    func getCharactersList(disposeBag: DisposeBag) -> Observable<MarverCharactersResponseEntity>
+    func getCharactersList() -> Observable<MarverCharactersResponseEntity>
 }

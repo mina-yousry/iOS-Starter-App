@@ -18,33 +18,34 @@ protocol ViewModelType: AnyObject {
     
 }
 
-class BaseViewModel<RepoType: BaseRepo,
-                    RouteType: BaseRouterProtocol,
-                    CoordinatorType: BaseCoordinator<RouteType>>: ViewModelType {
+class BaseViewModel<Repo: BaseRepo,
+                    UseCaseType: BaseUseCase<Repo>,
+                    RouteType: BaseRouteProtocol,
+                    RouterType: BaseRouter<RouteType>>: ViewModelType {
     
-    var repo: RepoType
-    weak var coordinator: CoordinatorType?
+    var useCase: UseCaseType
+    weak var router: RouterType?
     var isLoading = BehaviorRelay<Bool>(value: false)
-    var router = PublishRelay<RouteType>()
+    var navigator = PublishRelay<RouteType>()
     var error = PublishRelay<RepoError>()
     let disposeBag = DisposeBag()
     
-    required init(coordinator: CoordinatorType?) {
-        self.repo = RepoType.init()
-        self.coordinator = coordinator
-        let repoDisposeBag = self.repo.disposeBag
-        self.repo.isLoading.bind(to: self.isLoading).disposed(by: repoDisposeBag)
-        self.repo.error.bind(to: self.error).disposed(by: repoDisposeBag)
-        self.repo.error.subscribe(onNext: { [weak self] error in
+    required init(useCase: UseCaseType, router: RouterType?) {
+        self.useCase = useCase
+        self.router = router
+        let useCaseDisposeBag = self.useCase.disposeBag
+        self.useCase.isLoading.bind(to: self.isLoading).disposed(by: useCaseDisposeBag)
+        self.useCase.error.bind(to: self.error).disposed(by: useCaseDisposeBag)
+        self.useCase.error.subscribe(onNext: { [weak self] error in
             self?.handleError(error)
-        }).disposed(by: repoDisposeBag)
-        if let router = coordinator?.router {
-            self.router.bind(to: router).disposed(by: disposeBag)
+        }).disposed(by: useCaseDisposeBag)
+        if let navigator = router?.navigator {
+            self.navigator.bind(to: navigator).disposed(by: disposeBag)
         }
     }
     
     func close() {
-        self.coordinator?.close()
+        self.router?.close()
     }
     
     func handleError(_ error: RepoError) {}

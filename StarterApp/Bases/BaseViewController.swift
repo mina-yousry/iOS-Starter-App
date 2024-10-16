@@ -9,7 +9,7 @@ import RxSwift
 import Action
 import RxCocoa
 
-class BaseViewController<T: ViewModelType>: UIViewController, BindableType {
+class BaseViewController<T: ViewModelType>: UIViewController {
     
     typealias ViewModel = T
     

@@ -17,14 +17,13 @@ class BigCharactersListUserInterface: CharactersListUserInterfaceProtocol {
         return "BigCharacterTableViewCell"
     }
     
-    
-    weak var interActionResponder: CharactersListInterActionResponderProtocol?
+    var viewModel: CharactersListViewModelProtocol?
     var data = PublishSubject<[CharactersDisplayableEntity]>()
     
     private let disposeBag = DisposeBag()
     
-    required init(interActionResponder: CharactersListInterActionResponderProtocol) {
-        self.interActionResponder = interActionResponder
+    required init(viewModel: CharactersListViewModelProtocol) {
+        self.viewModel = viewModel
     }
     
     func getScreenTitle() -> String {
@@ -32,7 +31,7 @@ class BigCharactersListUserInterface: CharactersListUserInterfaceProtocol {
     }
     
     func getCharacters() {
-        let obs = self.interActionResponder?.getCharactersList(size: .landscape).share()
+        let obs = self.viewModel?.getCharactersList(size: .landscape).share()
         obs?.bind(to: self.data).disposed(by: disposeBag)
     }
     

@@ -8,8 +8,7 @@
 import Foundation
 import RxSwift
 
-protocol CharactersListInterActionResponderProtocol: AnyObject {
+protocol CharactersListViewModelProtocol: AnyObject {
         
-    var charactersListUserInterface: CharactersListUserInterfaceProtocol? { get set }
     func getCharactersList(size: ImageSize) -> Observable<[CharactersDisplayableEntity]> 
 }
