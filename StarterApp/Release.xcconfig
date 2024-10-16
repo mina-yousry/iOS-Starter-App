@@ -1,0 +1,12 @@
+//
+//  Release.xcconfig
+//  StarterApp
+//
+//  Created by Mina Yousry on 04/01/2023.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Pods/Target Support Files/Pods-StarterApp/Pods-StarterApp.release.xcconfig"
+#include "./Secrets.xcconfig"

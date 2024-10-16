@@ -1,0 +1,15 @@
+# Mockfile is a SwiftyMocky YAML configuration file
+sourceryCommand: null
+
+StarterAppMock:    
+  sources:
+    include:        
+    - ./StarterApp
+  output:           
+    - ./StarterAppTests/Mocks/Mock.generated.swift
+  targets:          
+    - StarterAppTests
+  testable:
+    - StarterApp
+  import:
+    - RxSwift
