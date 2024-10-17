@@ -9,14 +9,14 @@ import RxRelay
 import RxSwift
 
 protocol MainRouterProtocol: AnyObject {
-    var rootViewController: UINavigationController { get set }
+    var rootViewController: UIViewController { get set }
 }
 
 class BaseMainRouter: MainRouterProtocol {
     
-    var rootViewController: UINavigationController
+    var rootViewController: UIViewController
     
-    init(rootViewController: UINavigationController) {
+    init(rootViewController: UIViewController) {
         self.rootViewController = rootViewController
     }
 }
@@ -34,7 +34,7 @@ class BaseRouter<RouteType: BaseRouteProtocol>: BaseMainRouter, BaseRouterProtoc
     var navigator = PublishRelay<RouteType>()
     var disposeBag = DisposeBag()
     
-    override init(rootViewController: UINavigationController) {
+    override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
         self.navigator.subscribe(onNext: { [weak self] router in
             self?.performRouting(for: router)
