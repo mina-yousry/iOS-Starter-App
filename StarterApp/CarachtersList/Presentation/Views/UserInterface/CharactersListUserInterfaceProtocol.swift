@@ -23,4 +23,11 @@ protocol CharactersListUserInterfaceProtocol: AnyObject {
                        data: CharactersDisplayableEntity)
     func startLoading(for vc: UIViewController)
     func endLoading(for vc: UIViewController)
+    func didSelectCell(data: CharactersDisplayableEntity)
+}
+
+extension CharactersListUserInterfaceProtocol {
+    func didSelectCell(data: CharactersDisplayableEntity) {
+        viewModel?.routeToCharactersPage(data: data)
+    }
 }

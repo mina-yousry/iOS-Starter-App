@@ -27,7 +27,7 @@ class CharactersListViewModel: BaseViewModel<CharacterListRepo,
         })
     }
     
-    deinit {
-        print("deinit: CharactersListViewModel")
+    func routeToCharactersPage(data: CharactersDisplayableEntity) {
+        self.navigator.accept(.characterFullPage(data: data))
     }
 }

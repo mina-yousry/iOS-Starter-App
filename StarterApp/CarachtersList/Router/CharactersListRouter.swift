@@ -6,17 +6,22 @@
 //
 
 import Foundation
+import UIKit
 
 class CharactersListRouter: BaseRouter<CharatersListRoutes> {
     
+    var charactersListVc: UIViewController?
+    
     override func performRouting(for route: CharatersListRoutes) {
         switch route {
-        case .characterFullPage:
-            break
+        case .characterFullPage(let data):
+            guard let charactersListVc = charactersListVc else { return }
+            let router = CharacterFullPageRouter(vc: charactersListVc, entity: data)
+            router.start()
         }
     }
 }
 
 enum CharatersListRoutes: BaseRouteProtocol {
-    case characterFullPage
+    case characterFullPage(data: CharactersDisplayableEntity)
 }

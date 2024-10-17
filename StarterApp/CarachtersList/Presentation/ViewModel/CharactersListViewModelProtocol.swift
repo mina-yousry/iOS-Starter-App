@@ -10,5 +10,6 @@ import RxSwift
 
 protocol CharactersListViewModelProtocol: AnyObject {
         
-    func getCharactersList(size: ImageSize) -> Observable<[CharactersDisplayableEntity]> 
+    func getCharactersList(size: ImageSize) -> Observable<[CharactersDisplayableEntity]>
+    func routeToCharactersPage(data: CharactersDisplayableEntity)
 }

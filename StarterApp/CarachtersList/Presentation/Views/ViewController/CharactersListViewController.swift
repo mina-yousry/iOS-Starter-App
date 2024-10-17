@@ -47,5 +47,14 @@ class CharactersListViewController: UIViewController {
                 guard let uiCell = cell as? CharactersCellProtocol else { return }
                 self?.userInterface?.configureCell(cell: uiCell, data: item)
             }.disposed(by: disposeBag)
+        self.charactersUITableView
+            .rx
+            .modelSelected(CharactersDisplayableEntity.self)
+            .asObservable()
+            .subscribe(onNext: { [weak self] entity in
+                guard let self = self else { return }
+                self.userInterface?.didSelectCell(data: entity)
+            })
+            .disposed(by: disposeBag)
     }
 }

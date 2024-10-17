@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 class MainRouter: BaseMainRouter {
+    
+    private var children: [any BaseRouterProtocol] = []
     
     func prepareCharactersListScreen() {
         let repo = CharacterListRepo()
@@ -17,6 +20,8 @@ class MainRouter: BaseMainRouter {
 //        let userInterface = BigCharactersListUserInterface(viewModel: viewModel)
         let userInterface = CharactersListUserInterface(viewModel: viewModel)
         let charactersVc = CharactersListViewController(userInterface: userInterface)
-        rootViewController.setViewControllers([charactersVc], animated: true)
+        router.charactersListVc = charactersVc
+        self.children.append(router)
+        (rootViewController as? UINavigationController)?.setViewControllers([charactersVc], animated: true)
     }
 }
