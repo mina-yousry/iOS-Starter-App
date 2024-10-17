@@ -8,23 +8,34 @@ import Foundation
 import RxRelay
 import RxSwift
 
-protocol BaseRouterProtocol: AnyObject {
+protocol MainRouterProtocol: AnyObject {
+    var rootViewController: UINavigationController { get set }
+}
+
+class BaseMainRouter: MainRouterProtocol {
+    
+    var rootViewController: UINavigationController
+    
+    init(rootViewController: UINavigationController) {
+        self.rootViewController = rootViewController
+    }
+}
+
+protocol BaseRouterProtocol: MainRouterProtocol {
     associatedtype RouterType
     var navigator: PublishRelay<RouterType> { get set }
     var disposeBag: DisposeBag { get set }
-    var rootViewController: UINavigationController { get set }
     func close()
     func performRouting(for route: RouterType)
 }
 
-class BaseRouter<RouteType: BaseRouteProtocol>: BaseRouterProtocol {
+class BaseRouter<RouteType: BaseRouteProtocol>: BaseMainRouter, BaseRouterProtocol {
     
-    var rootViewController: UINavigationController
     var navigator = PublishRelay<RouteType>()
     var disposeBag = DisposeBag()
     
-    init(rootViewController: UINavigationController) {
-        self.rootViewController = rootViewController
+    override init(rootViewController: UINavigationController) {
+        super.init(rootViewController: rootViewController)
         self.navigator.subscribe(onNext: { [weak self] router in
             self?.performRouting(for: router)
         }).disposed(by: disposeBag)

@@ -52,6 +52,7 @@
 		D96E540D2CBFF8040005EDF7 /* CharactersListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96E540C2CBFF8040005EDF7 /* CharactersListRouter.swift */; };
 		D96E540F2CBFF8FA0005EDF7 /* BaseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96E540E2CBFF8ED0005EDF7 /* BaseUseCase.swift */; };
 		D96E54112CC000DE0005EDF7 /* CharacterListRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96E54102CC000DE0005EDF7 /* CharacterListRepo.swift */; };
+		D97530652CC119B300C2AF24 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97530642CC119B300C2AF24 /* MainRouter.swift */; };
 		D9D1EAA129ABB69F00B7673F /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1EAA029ABB69F00B7673F /* Mock.generated.swift */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +131,7 @@
 		D96E540C2CBFF8040005EDF7 /* CharactersListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListRouter.swift; sourceTree = "<group>"; };
 		D96E540E2CBFF8ED0005EDF7 /* BaseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUseCase.swift; sourceTree = "<group>"; };
 		D96E54102CC000DE0005EDF7 /* CharacterListRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListRepo.swift; sourceTree = "<group>"; };
+		D97530642CC119B300C2AF24 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		D9D1EAA029ABB69F00B7673F /* Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.generated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -283,6 +285,7 @@
 				652186B9295B3A2800BFCC12 /* Bases */,
 				652186D0295C6C6F00BFCC12 /* CarachtersList */,
 				65D278E82958823A000D16D1 /* AppDelegate.swift */,
+				D97530642CC119B300C2AF24 /* MainRouter.swift */,
 				65D278F12958823B000D16D1 /* Assets.xcassets */,
 				65D278F32958823B000D16D1 /* LaunchScreen.storyboard */,
 				65D278F62958823B000D16D1 /* Info.plist */,
@@ -648,6 +651,7 @@
 				652186CE295B3A8000BFCC12 /* BaseViewController.swift in Sources */,
 				652186CF295B3A8000BFCC12 /* BaseRepo.swift in Sources */,
 				652186D9295C6D2D00BFCC12 /* CharactersListUserInterface.swift in Sources */,
+				D97530652CC119B300C2AF24 /* MainRouter.swift in Sources */,
 				652186CA295B3A8000BFCC12 /* BaseRouter.swift in Sources */,
 				652186E0295D9BF700BFCC12 /* BaseResponseEntity.swift in Sources */,
 				65D278E92958823A000D16D1 /* AppDelegate.swift in Sources */,

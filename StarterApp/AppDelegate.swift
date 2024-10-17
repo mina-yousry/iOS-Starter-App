@@ -11,19 +11,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    let mainRootVC = UINavigationController()
+    var mainRouter: MainRouter?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let vc = UINavigationController()
-        let repo = CharacterListRepo()
-        let useCase = ViewCharactersListUseCase(repo: repo)
-        let router = CharactersListRouter(rootViewController: vc)
-        let viewModel = CharactersListViewModel(useCase: useCase, router: router)
-//        let userInterface = BigCharactersListUserInterface(viewModel: viewModel)
-        let userInterface = CharactersListUserInterface(viewModel: viewModel)
-        let charactersVc = CharactersListViewController(userInterface: userInterface)
-        vc.setViewControllers([charactersVc], animated: true)
-        window?.rootViewController = vc
+        mainRouter = MainRouter(rootViewController: mainRootVC)
+        mainRouter?.prepareCharactersListScreen()
+        window?.rootViewController = mainRootVC
         window?.makeKeyAndVisible()
         return true
     }
